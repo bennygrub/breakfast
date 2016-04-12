@@ -1,4 +1,4 @@
-= form_for [@event, @participant], html: {class: "form-horizontal"} do |f|
+= form_for [@event, @participant], html: {class: "form-horizontal", multipart: true} do |f|
   - if @participant.errors.any?
     #error_explanation
       %h2= "#{pluralize(@participant.errors.count, "error")} prohibited this participant from being saved:"
@@ -7,6 +7,11 @@
           %li= msg
 
   .col-xs-12.col-sm-8
+    .form-group
+      .col-sm-2.control-label
+        = f.label "Add image"
+      .col-sm-10
+        =f.file_field :avatar, class: "form-control"
     .form-group
       =f.hidden_field :event_id, value: @event.id
       .col-sm-2.control-label

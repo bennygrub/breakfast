@@ -8,9 +8,16 @@
 %p
   = @event.description
 
-%h4 Parcipants
+%br
+
+%h4 
+  Parcipants
+  ="(#{@participants.count})"
+%hr
 -@participants.each do |participant|
-  %p= participant.name
+  %p
+    = link_to participant.name, event_participant_path(@event.id, participant.id)
+  %hr
 
 = link_to 'Edit', edit_event_path(@event)
 \|

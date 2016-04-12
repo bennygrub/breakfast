@@ -37,6 +37,7 @@ group :development do
   gem 'rails_layout'
 end
 
+gem 'rails_12factor', group: :production
 
 #pretty me
 gem 'bootstrap-sass'
@@ -51,6 +52,10 @@ gem 'bootstrap-datepicker-rails'
 #debugging
 gem 'pry'
 
+#images
+gem "paperclip"
+gem 'aws-sdk'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
@@ -62,3 +67,4 @@ gem 'pry'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+ruby "2.3.0"

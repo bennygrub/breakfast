@@ -1,10 +1,10 @@
 -if current_user
   %p
+    =image_tag @participant.avatar.url, class: "img-responsive img-circle"
+  %h1= @participant.name
+  %p
     %b Event:
     = @participant.event_id
-  %p
-    %b Name:
-    = @participant.name
   %p
     %b Title:
     = @participant.title
