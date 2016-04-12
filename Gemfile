@@ -45,6 +45,12 @@ gem "haml-rails", "~> 0.9"
 #user profiles
 gem 'devise'
 
+#dates
+gem 'bootstrap-datepicker-rails'
+
+#debugging
+gem 'pry'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

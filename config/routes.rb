@@ -1,6 +1,10 @@
 Breakfast::Application.routes.draw do
+
+  resources :events do
+    resources :participants
+  end
+
   devise_for :users
-  devise_for :models
   get "pages/home"
   get "pages/about"
   get "pages/faq"

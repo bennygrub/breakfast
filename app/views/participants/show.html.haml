@@ -1,0 +1,23 @@
+-if current_user
+  %p
+    %b Event:
+    = @participant.event_id
+  %p
+    %b Name:
+    = @participant.name
+  %p
+    %b Title:
+    = @participant.title
+  %p
+    %b Division:
+    = @participant.division
+  %p
+    %b Biography:
+    = @participant.biography
+
+  = link_to 'Edit', edit_event_participant_path(@participant.event_id, @participant.id)
+  \|
+  = link_to 'Back', event_participants_path(@participant.event_id)
+-else
+  %h1 Thank you for submitting!
+  %p You will be receiving further details via email.

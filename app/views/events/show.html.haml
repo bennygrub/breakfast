@@ -1,0 +1,17 @@
+%h1
+  = @event.name
+%h3
+  = @event.event_date.strftime("%B %d, %Y")
+  at
+  = @event.event_date.strftime("%I:%M %p")
+
+%p
+  = @event.description
+
+%h4 Parcipants
+-@participants.each do |participant|
+  %p= participant.name
+
+= link_to 'Edit', edit_event_path(@event)
+\|
+= link_to 'Back', events_path
