@@ -1,6 +1,6 @@
 %h1 Listing events
 
-%table
+%table.table.table-striped
   %thead
     %tr
       %th Name
@@ -15,7 +15,10 @@
       %tr
         %td= event.name
         %td= event.description
-        %td= event.event_date
+        %td
+          = event.event_date.strftime("%B %d, %Y")
+          at
+          = event.event_date.strftime("%I:%M %p")
         %td= link_to 'Show', event
         %td= link_to 'Edit', edit_event_path(event)
         %td= link_to 'Destroy', event, :method => :delete, :data => { :confirm => 'Are you sure?' }

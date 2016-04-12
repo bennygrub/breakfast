@@ -1,5 +1,12 @@
-%h1
-  = @event.name
+.row
+  .col-xs-12.col-sm-8
+    %h1
+      = @event.name
+  .col-xs-12.col-sm-4
+    %h1
+    =link_to preview_event_path(@event) do
+      .btn.btn-info
+        Generate Web Preview
 %h3
   = @event.event_date.strftime("%B %d, %Y")
   at
@@ -22,3 +29,5 @@
 = link_to 'Edit', edit_event_path(@event)
 \|
 = link_to 'Back', events_path
+\|
+= link_to 'Create New Participant', new_event_participant_path(@event.id)

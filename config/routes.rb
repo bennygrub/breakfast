@@ -2,6 +2,9 @@ Breakfast::Application.routes.draw do
 
   resources :events do
     resources :participants
+    member do
+      get :preview
+    end
   end
 
   devise_for :users

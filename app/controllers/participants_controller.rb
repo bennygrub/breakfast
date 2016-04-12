@@ -1,5 +1,5 @@
 class ParticipantsController < ApplicationController
-  before_action :set_participant, only: [:show, :edit, :update, :destroy]
+  before_action :set_participant, only: [:show, :edit, :update, :destroy, :preview]
 
   respond_to :html
 
@@ -20,6 +20,7 @@ class ParticipantsController < ApplicationController
   end
 
   def edit
+    @event = Event.find(params[:event_id])
   end
 
   def create
@@ -30,14 +31,19 @@ class ParticipantsController < ApplicationController
   end
 
   def update
+    @event = Event.find(@participant.event_id)
     @participant.update(participant_params)
-    respond_with(@participant)
+    respond_with(@event, @participant)
   end
 
   def destroy
     @event = Event.find(params[:event_id])
     @participant.destroy
     redirect_to event_participants_path(params[:event_id])
+  end
+
+  def preview
+
   end
 
   private
