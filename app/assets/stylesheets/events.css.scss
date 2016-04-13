@@ -1,3 +1,30 @@
 // Place all the styles related to the Events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#preview {
+  h1 {
+    color:#2bb7e8;
+  }
+  .event-data-box {
+    border-bottom: 1px solid grey;
+  }
+  color: #67686b;
+}
+
+#participant-area {
+  h1 {
+    color:#d02630;
+  }
+  h2 {
+    color:#939598;
+  }
+  h3 {
+    color:#000;
+  }
+  .participant-row {
+    margin-top:40px;
+  }
+  color: #000;
+}
+
