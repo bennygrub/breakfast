@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require jquery.jcrop
+//= require papercrop
 //= require bootstrap-datepicker
 //= require bootstrap
 //= require_tree .

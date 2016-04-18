@@ -54,11 +54,12 @@ gem 'pry'
 
 #images
 gem "paperclip"
-gem 'aws-sdk'
+gem 'aws-sdk', '< 2.0'
 
 #pdf
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
+gem 'papercrop'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
