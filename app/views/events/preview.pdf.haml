@@ -1,0 +1,27 @@
+#preview
+  .row
+    .col-xs-9
+      .event-data-box
+        %h1 CEO Monthly Breakfast Series
+        %h2 Hosted By Philippe Dauman
+        %h4
+          Participants: 
+          = @event.event_date.strftime("%B %d, %Y")
+    .col-xs-1
+    .col-xs-2
+      =wicked_pdf_image_tag("viacom-logo.png", class:"img-responsive", style: "max-width:200px;")
+
+  #participant-area
+    -@event.participants.each do |participant|
+      .row.participant-row
+        .col-xs-4
+          =wicked_pdf_image_tag(participant.avatar.url, class: "img-responsive")
+        .col-xs-8
+          %h1
+            =participant.name
+          %h2
+            =participant.title
+          %h3
+            =participant.division
+          %p
+            =participant.biography        

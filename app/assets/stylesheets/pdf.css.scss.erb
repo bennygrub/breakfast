@@ -1,0 +1,65 @@
+@import "bootstrap";
+@import "events";
+
+@font-face {
+  font-family: 'ExpoSSK';
+  src:url(<%= asset_data_base64('expossk.eot') %>);
+  src:url(<%= asset_data_base64('expossk.woff')%>) format('woff'),
+    url(<%= asset_data_base64('expossk.ttf')%>) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ExpoSSK';
+  src:url(<%= asset_data_base64('expossk_bold.eot')%>);
+  src:
+    url(<%= asset_data_base64('expossk-bold.woff')%>) format('woff'),
+    url(<%= asset_data_base64('expossk-bold.ttf')%>) format('opentype');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'ExpoSSK Book';
+  src:url(<%= asset_data_base64('expobook-book.ttf')%>) format('truetype');
+}
+
+@font-face {
+  font-family: 'Horley';
+  src:url(<%= asset_data_base64('horley-old-style-mt.ttf')%>) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Horley';
+  src:
+    url(<%= asset_data_base64('horley-old-style-mt-bold.woff')%>) format('woff'),
+    url(<%= asset_data_base64('horley-old-style-mt-bold.ttf')%>) format('truetype');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'Horley';
+  src:
+    url(<%= asset_data_base64('horley-old-style-mt-semibold-italic.woff')%>) format('woff'),
+    url(<%= asset_data_base64('horley-old-style-mt-semibold-italic.ttf')%>) format('truetype');
+  font-weight: semi-bold;
+  font-style: italic, oblique;
+}
+
+@font-face {
+  font-family: 'Horley Light';
+  src:url(<%= asset_data_base64('horley-old-style-mt-light.otf')%>) format('opentype');
+}
+
+@font-face {
+  font-family: 'Century Old';
+  src:url(<%= asset_data_base64('century-old-style-std.ttf')%>) format('truetype');
+}
+
+#preview {
+  h1 {
+    font-size: 29px;
+  }
+}

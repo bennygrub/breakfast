@@ -1,13 +1,28 @@
+- if request.format.html?
+  .row.html-pdf-area
+    .col-xs-12.col-sm-6
+      %p
+        = link_to  url_for(request.params.merge(:format => :pdf)) do
+          .btn.btn-default
+            .pull-left= image_tag('pdf-download-icon.png', :alt => 'Download', style: "width:20px;")
+            .pull-left{style:"margin-left:10px;"} Download as PDF
+    .col-xs-12.col-sm-6
+      %p
+        = form_tag url_for(:controller => "events", :action => 'preview', :format => :pdf), class: "form-horizontal", :method => :get do
+          Send a PDF to:
+          = text_field_tag 'email', nil, placeholder: "separate emails with a comma"
+          %button.btn.btn-info Email PDF
 #preview
   .row
-    .col-xs-12.col-sm-7.event-data-box
-      %h1 CEO MONTHLY BREAKFAST SERIES
-      %h2 Hosted By Philippe Dauman
-      %h4
-        Participants: 
-        = @event.event_date.strftime("%B %d, %Y")
-        at
-        = @event.event_date.strftime("%I:%M %p")
+    .col-xs-12.col-sm-7
+      .event-data-box
+        %h1 CEO MONTHLY BREAKFAST SERIES
+        %h2 Hosted By Philippe Dauman
+        %h4
+          Participants: 
+          = @event.event_date.strftime("%B %d, %Y")
+          at
+          = @event.event_date.strftime("%I:%M %p")
     .col-xs-12.col-sm-5
       =image_tag("viacom-logo.png", class:"img-responsive", style: "max-width:200px;")
 

@@ -39,7 +39,19 @@ class EventsController < ApplicationController
   end
 
   def preview
-
+    
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render :pdf => "#{@event.name}/#{@event.id}.pdf",
+        layout: 'layouts/application.pdf.haml',
+        show_as_html: params[:debug].present?,
+        :page_size  => "Letter",
+        :dpi => '300',
+        margin: { top: 10, bottom: 0, right: 8, left: 8 },
+        :save_to_file => Rails.root.join('public', "#{@event.name}#{@event.id}.pdf")
+      end
+    end
   end
 
   private

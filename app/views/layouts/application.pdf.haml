@@ -1,0 +1,11 @@
+!!!
+%html
+  %head
+    %title CEO Breakfast
+    %meta{:charset => "utf-8"}/
+    = wicked_pdf_stylesheet_link_tag "pdf"
+    = javascript_include_tag "http://code.jquery.com/jquery-1.10.0.min.js"
+    = javascript_include_tag "http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"
+  %body{:style => "width:100;%"}
+    .container
+      = yield

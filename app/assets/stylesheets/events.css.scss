@@ -6,16 +6,19 @@
   h1 {
     color:#2bb7e8;
     text-transform:uppercase;
+    font-weight:bold;
+    margin-bottom:0;
   }
   h2{
     font-family: "Horley";
     font-style: oblique;
+    margin-top:0;
   }
   h4{
     text-transform: uppercase;
   }
   .event-data-box {
-    border-bottom: 1px solid grey;
+    border-bottom: 2px solid grey;
   }
   color: #67686b;
 }
@@ -53,5 +56,10 @@
     margin-top:40px;
   }
   
+}
+
+.html-pdf-area{
+  background: #efefef;
+  padding: 20px 10px;
 }
 

@@ -1,6 +1,7 @@
 // import the CSS framework
 @import "bootstrap-sprockets";
 @import "bootstrap";
+<% environment.context_class.instance_eval { include ApplicationHelper } %>
 
 // make all images responsive by default
 img {
@@ -87,62 +88,59 @@ section {
 
 @font-face {
   font-family: 'ExpoSSK';
-  src:font-url('expossk.eot');
-  src:font-url('expossk.eot?#iefix') format('embedded-opentype'),
-    font-url('expossk.woff') format('woff'),
-    font-url('expossk.ttf') format('truetype');
+  src:url(<%= asset_data_base64('expossk.eot') %>);
+  src:url(<%= asset_data_base64('expossk.woff')%>) format('woff'),
+    url(<%= asset_data_base64('expossk.ttf')%>) format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'ExpoSSK';
-  src:font-url('expossk_bold.eot');
-  src:font-url('expossk_bold.eot?#iefix') format('embedded-opentype'),
-    font-url('expossk-bold.woff') format('woff'),
-    font-url('expossk-bold.ttf') format('opentype');
+  src:url(<%= asset_data_base64('expossk_bold.eot')%>);
+  src:
+    url(<%= asset_data_base64('expossk-bold.woff')%>) format('woff'),
+    url(<%= asset_data_base64('expossk-bold.ttf')%>) format('opentype');
   font-weight: bold;
 }
 
 @font-face {
   font-family: 'ExpoSSK Book';
-  src:font-url('expobook-book.ttf') format('truetype');
+  src:url(<%= asset_data_base64('expobook-book.ttf')%>) format('truetype');
 }
 
 @font-face {
   font-family: 'Horley';
-  src:font-url('horley-old-style-mt.ttf') format('truetype');
+  src:url(<%= asset_data_base64('horley-old-style-mt.ttf')%>) format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Horley';
-  src:font-url('horley-old-style-mt-bold.eot');
-  src:font-url('horley-old-style-mt-bold.eot?#iefix') format('embedded-opentype'),
-    font-url('horley-old-style-mt-bold.woff') format('woff'),
-    font-url('horley-old-style-mt-bold.ttf') format('truetype');
+  src:
+    url(<%= asset_data_base64('horley-old-style-mt-bold.woff')%>) format('woff'),
+    url(<%= asset_data_base64('horley-old-style-mt-bold.ttf')%>) format('truetype');
   font-weight: bold;
 }
 
 @font-face {
   font-family: 'Horley';
-  src:font-url('horley-old-style-mt-semibold-italic.eot');
-  src:font-url('horley-old-style-mt-semibold-italic.eot?#iefix') format('embedded-opentype'),
-    font-url('horley-old-style-mt-semibold-italic.woff') format('woff'),
-    font-url('horley-old-style-mt-semibold-italic') format('truetype');
+  src:
+    url(<%= asset_data_base64('horley-old-style-mt-semibold-italic.woff')%>) format('woff'),
+    url(<%= asset_data_base64('horley-old-style-mt-semibold-italic.ttf')%>) format('truetype');
   font-weight: semi-bold;
   font-style: italic, oblique;
 }
 
 @font-face {
   font-family: 'Horley Light';
-  src:font-url('horley-old-style-mt-light.otf') format('opentype');
+  src:url(<%= asset_data_base64('horley-old-style-mt-light.otf')%>) format('opentype');
 }
 
 @font-face {
   font-family: 'Century Old';
-  src:font-url('century-old-style-std.ttf') format('truetype');
+  src:url(<%= asset_data_base64('century-old-style-std.ttf')%>) format('truetype');
 }
 
 body{
