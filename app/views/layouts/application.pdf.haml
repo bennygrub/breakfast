@@ -5,10 +5,12 @@
     %meta{:charset => "utf-8"}/
     -if params[:debug].present?
       = wicked_pdf_stylesheet_link_tag "pdf"
+      = javascript_include_tag "pdf"
       = javascript_include_tag "http://code.jquery.com/jquery-1.10.0.min.js"
       = javascript_include_tag "http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"
     -else
       = wicked_pdf_stylesheet_link_tag "pdf"
+      = javascript_include_tag "pdf"
       = javascript_include_tag "http://code.jquery.com/jquery-1.10.0.min.js"
       = javascript_include_tag "http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"
   %body{:style => "width:100;%"}
