@@ -21,10 +21,29 @@
   Parcipants
   ="(#{@participants.count})"
 %hr
--@participants.each do |participant|
-  %p
-    = link_to participant.name, event_participant_path(@event.id, participant.id)
-  %hr
+%table.table.table-striped
+  %thead
+    %tr
+      %th Image
+      %th Name
+      %th Title
+      %th Division
+      %th Biography
+      %th
+      %th
+      %th
+  -@participants.each do |participant|
+    %tbody
+      %tr
+        %td= image_tag(participant.avatar.url, class:"img-responsive", style:"max-width:30px;")
+        %td= participant.name
+        %td= participant.title
+        %td= participant.division
+        %td= participant.biography
+        %td= link_to 'Show', event_participant_path(participant.event_id, participant)
+        %td= link_to 'Edit', edit_event_participant_path(participant.event_id, participant)
+        %td= link_to 'Destroy', event_participant_path(participant.event_id,participant.id ), :method => :delete, :data => { :confirm => 'Are you sure?' }
+
 
 = link_to 'Edit', edit_event_path(@event)
 \|

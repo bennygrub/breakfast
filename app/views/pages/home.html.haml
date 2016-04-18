@@ -1,5 +1,14 @@
 %h1 CEO MONTHLY BREAKFAST SERIES
 %h3 Hosted By Philippe Dauman
-=link_to new_user_session_path do
-  .btn.btn-info
-    Sign In
+
+-if current_user
+  =link_to new_event_path do
+    .btn.btn-info
+      Create an Event
+  =link_to events_path do
+    .btn.btn-success
+      See Old Events
+-else
+  =link_to new_user_session_path do
+    .btn.btn-info
+      Sign In
