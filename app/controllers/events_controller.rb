@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy, :preview]
-
+  before_action :admin_only
+  
   respond_to :html
 
   def index
@@ -61,5 +62,9 @@ class EventsController < ApplicationController
 
     def event_params
       params.require(:event).permit(:name, :description, :event_date)
+    end
+    
+    def admin_only
+      redirect_to root_path, flash: {error: "You are not authorized to use this page"} unless current_user
     end
 end

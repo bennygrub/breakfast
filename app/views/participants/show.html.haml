@@ -1,24 +1,23 @@
--if current_user
-  %p
-    =image_tag @participant.avatar.url, class: "img-responsive img-circle"
-  %h1= @participant.name
-  %p
-    %b Event:
-    = @participant.event_id
-  %p
-    %b Title:
-    = @participant.title
-  %p
-    %b Division:
-    = @participant.division
-  %p
-    %b Biography:
-    = @participant.biography
-
-  = link_to 'Edit', edit_event_participant_path(@participant.event_id, @participant.id)
-  \|
-  = link_to 'Back', event_participants_path(@participant.event_id)
-
--else
+#participant-area
   %h1 Thank you for submitting!
   %p You will be receiving further details via email.
+  %hr
+  .row.participant-row
+    .col-xs-12.col-sm-3
+      =image_tag(@participant.avatar.url)
+    .col-xs-12.col-sm-9
+      %h1
+        =@participant.name
+      %h2
+        =@participant.title
+      %h3
+        =@participant.division
+      %p
+        =@participant.biography
+  %hr
+= link_to 'Edit Your Submission', edit_event_participant_path(@participant.event_id, @participant.id)
+
+-if current_user
+  
+  \|
+  = link_to 'Back', event_participants_path(@participant.event_id)

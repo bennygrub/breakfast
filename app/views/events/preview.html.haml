@@ -8,10 +8,11 @@
             .pull-left{style:"margin-left:10px;"} Download as PDF
     .col-xs-12.col-sm-6
       %p
-        = form_tag url_for(:controller => "events", :action => 'preview', :format => :pdf), class: "form-horizontal", :method => :get do
-          Send a PDF to:
-          = text_field_tag 'email', nil, placeholder: "separate emails with a comma"
-          %button.btn.btn-info Email PDF
+        .hidden
+          = form_tag url_for(:controller => "events", :action => 'preview', :format => :pdf), class: "form-horizontal", :method => :get do
+            Send a PDF to:
+            = text_field_tag 'email', nil, placeholder: "separate emails with a comma"
+            %button.btn.btn-info Email PDF
 #preview
   .row
     .col-xs-12.col-sm-7

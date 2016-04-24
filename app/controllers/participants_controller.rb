@@ -1,5 +1,6 @@
 class ParticipantsController < ApplicationController
   before_action :set_participant, only: [:show, :edit, :update, :destroy, :preview]
+  before_action :admin_only, except: [:new, :edit, :update, :show]
 
   respond_to :html
 
@@ -57,5 +58,9 @@ class ParticipantsController < ApplicationController
 
     def participant_params
       params.require(:participant).permit(:event_id, :name, :email, :title, :division, :biography, :avatar)
+    end
+
+    def admin_only
+      redirect_to root_path, flash: {error: "You are not authorized to use this page"} unless current_user
     end
 end
