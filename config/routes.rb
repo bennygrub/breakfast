@@ -1,7 +1,11 @@
 Breakfast::Application.routes.draw do
 
   resources :events do
-    resources :participants
+    resources :participants do
+      collection do
+        get :generate_link
+      end
+    end
     member do
       get :preview
     end

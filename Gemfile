@@ -60,6 +60,9 @@ gem 'aws-sdk', '< 2.0'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 
+#copy/paste
+gem 'zeroclipboard-rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

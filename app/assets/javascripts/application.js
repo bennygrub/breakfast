@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require bootstrap-datepicker
 //= require bootstrap
+//= require zeroclipboard
 //= require_tree .

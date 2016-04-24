@@ -1,12 +1,17 @@
 .row
-  .col-xs-12.col-sm-9
+  .col-xs-12.col-sm-8
     %h1
       = @event.name
-  .col-xs-12.col-sm-3
+  .col-xs-12.col-sm-2
     %h1
     =link_to preview_event_path(@event) do
       .btn.btn-info
         Generate Preview
+  .col-xs-12.col-sm-2
+    %h1
+    =link_to generate_link_event_participants_path(@event) do
+      .btn.btn-success
+        Generate Participant URL
 %h3
   = @event.event_date.strftime("%B %d, %Y")
   at

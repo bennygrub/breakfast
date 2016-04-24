@@ -1,0 +1,41 @@
+.row
+  .col-xs-12.col-sm-8
+    -if params[:name]
+      %h1 
+        Link for 
+        ="#{params[:name]}"
+        with email -
+        ="#{params[:email]}"
+      %h4 Copy the link below to invite a participant:
+      %textarea#fe_text{:cols => "50", :rows => "3", style:"padding:20px;background: #EFEFEF;border-radius: 5px;border-color: #C1C1C1;"}
+        ="#{Rails.root}/events/#{@event.id}/participants/new?invite_email=#{params[:email]}&invite_name=#{params[:name]}"
+      %br
+      %button#d_clip_button.my_clip_button.btn.btn-info{"data-clipboard-target" => "fe_text", "data-clipboard-text" => "Default clipboard text from attribute", :title => "Click me to copy to clipboard."}
+        Copy To Clipboard...
+    -else
+      %h1 Generate Participant Link for Email
+      %br
+      = form_tag generate_link_event_participants_path(@event.id), :method => :get, :html => {:class => "form-horizontal"} do
+        .form-horizontal
+          = field_set_tag do
+            .form-group
+              .col-xs-3
+                = label_tag :name, 'Participant Name'
+              .col-xs-9
+                = text_field_tag :name, "", class: "form-control"
+            .form-group
+              .col-xs-3
+                = label_tag :email, 'Participant Email'
+              .col-xs-9
+                = text_field_tag :email, "", class: "form-control"
+          = submit_tag 'Generate Links', class: "btn btn-info pull-right"
+          .clearfix
+:javascript
+  $(document).ready(function() {
+    var clip = new ZeroClipboard($("#d_clip_button"))
+  });
+
+  $("#clear-test").on("click", function(){
+    $("#fe_text").val("Copy me!");
+    $("#testarea").val("");
+  });

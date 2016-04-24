@@ -46,6 +46,10 @@ class ParticipantsController < ApplicationController
 
   end
 
+  def generate_link
+    @event = Event.find(params[:event_id])
+  end
+
   private
     def set_participant
       @participant = Participant.find(params[:id])
