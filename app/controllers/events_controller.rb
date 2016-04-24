@@ -23,13 +23,16 @@ class EventsController < ApplicationController
   end
 
   def create
-    params[:event][:event_date] = DateTime.strptime(event_params[:event_date], "%m/%d/%Y")
+    event_date = "#{params[:event][:event_date_date]} #{params[:event][:event_date_hour]}:#{params[:event][:event_date_min]}:00 #{params[:event][:event_date_time].upcase}"
+    params[:event][:event_date] = DateTime.strptime(event_date, "%Y-%m-%d %I:%M:%S %p")
     @event = Event.new(event_params)
     @event.save
     respond_with(@event)
   end
 
   def update
+    event_date = "#{params[:event][:event_date_date]} #{params[:event][:event_date_hour]}:#{params[:event][:event_date_min]}:00 #{params[:event][:event_date_time].upcase}"
+    params[:event][:event_date] = DateTime.strptime(event_date, "%Y-%m-%d %I:%M:%S %p")
     @event.update(event_params)
     respond_with(@event)
   end
@@ -63,7 +66,7 @@ class EventsController < ApplicationController
     def event_params
       params.require(:event).permit(:name, :description, :event_date)
     end
-    
+
     def admin_only
       redirect_to root_path, flash: {error: "You are not authorized to use this page"} unless current_user
     end

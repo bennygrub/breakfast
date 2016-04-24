@@ -48,6 +48,7 @@ gem 'devise'
 
 #dates
 gem 'bootstrap-datepicker-rails'
+gem "time_splitter"
 
 #debugging
 gem 'pry'
