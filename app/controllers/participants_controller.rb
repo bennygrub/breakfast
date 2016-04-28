@@ -33,6 +33,8 @@ class ParticipantsController < ApplicationController
 
   def update
     @event = Event.find(@participant.event_id)
+    #participant_params[:avatar].nil?
+    #raise "#{participant_params}"
     @participant.update(participant_params)
     respond_with(@event, @participant)
   end

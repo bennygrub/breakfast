@@ -8,7 +8,7 @@
         ="#{params[:email]}"
       %h4 Copy the link below to invite a participant:
       %textarea#fe_text{:cols => "50", :rows => "3", style:"padding:20px;background: #EFEFEF;border-radius: 5px;border-color: #C1C1C1;"}
-        ="#{Rails.root}/events/#{@event.id}/participants/new?invite_email=#{params[:email]}&invite_name=#{params[:name]}"
+        ="#{root_url}events/#{@event.id}/participants/new?invite_email=#{params[:email]}&invite_name=#{params[:name]}"
       %br
       %button#d_clip_button.my_clip_button.btn.btn-info{"data-clipboard-target" => "fe_text", "data-clipboard-text" => "Default clipboard text from attribute", :title => "Click me to copy to clipboard."}
         Copy To Clipboard...
