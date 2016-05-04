@@ -24,8 +24,11 @@ class EventsController < ApplicationController
 
   def create
     event_date = "#{params[:event][:event_date_date]} #{params[:event][:event_date_hour]}:#{params[:event][:event_date_min]}:00 #{params[:event][:event_date_time].upcase}"
-    
-    params[:event][:event_date] = DateTime.strptime(event_date, "%m/%d/%Y %I:%M:%S %p")
+    begin
+      params[:event][:event_date] = DateTime.strptime(event_date, "%m/%d/%Y %I:%M:%S %p")
+    rescue
+      params[:event][:event_date] = DateTime.strptime(event_date, "%Y-%m-%d %I:%M:%S %p")
+    end
     @event = Event.new(event_params)
     @event.save
     respond_with(@event)
@@ -33,7 +36,11 @@ class EventsController < ApplicationController
 
   def update
     event_date = "#{params[:event][:event_date_date]} #{params[:event][:event_date_hour]}:#{params[:event][:event_date_min]}:00 #{params[:event][:event_date_time].upcase}"
-    params[:event][:event_date] = DateTime.strptime(event_date, "%m/%d/%Y %I:%M:%S %p")
+    begin
+      params[:event][:event_date] = DateTime.strptime(event_date, "%m/%d/%Y %I:%M:%S %p")
+    rescue
+      params[:event][:event_date] = DateTime.strptime(event_date, "%Y-%m-%d %I:%M:%S %p")
+    end
     @event.update(event_params)
     respond_with(@event)
   end
