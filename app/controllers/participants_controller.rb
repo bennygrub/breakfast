@@ -28,7 +28,8 @@ class ParticipantsController < ApplicationController
     @participant = Participant.new(participant_params)
     @participant.save
     @event = Event.find(@participant.event_id)
-    redirect_to event_participant_path(@event, @participant)
+    #redirect_to event_participant_path(@event, @participant)
+    respond_with(@event, @participant)
   end
 
   def update

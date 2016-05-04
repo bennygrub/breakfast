@@ -97,5 +97,6 @@ Breakfast::Application.configure do
     :domain         => 'heroku.com',
     :enable_starttls_auto => true
   }
-  
+  config.action_mailer.asset_host = "https://ceobreakfast.herokuapp.com"
+  config.action_mailer.default_url_options = { host: 'https://ceobreakfast.herokuapp.com' }
 end

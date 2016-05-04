@@ -37,8 +37,13 @@
       .col-sm-2.control-label
         = f.label :biography
       .col-sm-10
-        = f.text_area :biography, class: "form-control"
+        = f.text_area :biography, class: "form-control", placeholder: "75-150 characters"
     .form-group
       .pull-right
         = f.submit 'Save', class: "btn btn-info"
 .clearfix
+%hr
+.row
+  .col-xs-12
+    %h3 Sample Content:
+    =image_tag("sample.jpg", class:"img-responsive")
