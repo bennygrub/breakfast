@@ -4,17 +4,17 @@
     %meta(http-equiv="Content-Type" content="text/html; charset=UTF-8")
     = stylesheet_link_tag 'emails'
   %body
-    .row
+    .row{style:"border: 1px solid lightgrey;"}
       .col-xs-12
         .text-center
           .blue-header
-            %h2.dark-font CEO MONTHLY BREAKFAST SERIES
-            %h3 
+            %h2.blue-font.no-margin CEO MONTHLY BREAKFAST SERIES
+            %h3.no-margin 
               %i.dark-font Hosted By Philippe Dauman
 
       .col-xs-12.text-center
-        %h4
-          %i="#{@name}," 
+        %h4.red-font
+          %i.red-font="#{@name}," 
           you are cordially invited to breakfast with President and CEO Philippe Dauman
         %p 
           A monthly breakfast series initiated by Philippe for employees across Viacom

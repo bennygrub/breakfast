@@ -21,3 +21,9 @@
         %td
           -if invite.sent
             Sent
+.row
+  .col-xs-12
+    %p
+      =link_to invite_list_event_path(@event), class: "btn btn-info" do
+        Invite More Attendees
+      
