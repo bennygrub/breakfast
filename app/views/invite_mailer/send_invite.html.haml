@@ -7,31 +7,30 @@
     .row
       .col-xs-12
         .text-center
-          .blue-header{style: "background:lightblue;padding:30px;color:white;"}
-            %h2 CEO MONTHLY BREAKFAST SERIES
+          .blue-header
+            %h2.dark-font CEO MONTHLY BREAKFAST SERIES
             %h3 
-              %i Hosted By Philippe Dauman
+              %i.dark-font Hosted By Philippe Dauman
 
       .col-xs-12.text-center
-        %p
-          Hello
-          ="#{@name},"
         %h4
-          You are cordially invited to breakfast with President and CEO Philippe Dauman
+          %i="#{@name}," 
+          you are cordially invited to breakfast with President and CEO Philippe Dauman
         %p 
           A monthly breakfast series initiated by Philippe for employees across Viacom
         %h4
           = @event.event_date.strftime("%B %d, %Y")
         %p
-          = @event.event_date.strftime("%I:%M %p")
-          Sharp
+          %i= @event.event_date.strftime("%I:%M %p")
+          %i Sharp
           %br
           1515 Broadway- 52nd Fl. Multi Media Room
           New York, NY, 10036
-
+        %br
         %p
-          =link_to "#{root_url}events/#{@event.id}/participants/new?invite_email=#{@email}&invite_name=#{@name}", class: "btn btn-info" do
+          =link_to "#{root_url}events/#{@event.id}/participants/new?invite_email=#{@email}&invite_name=#{@name}", class: "btn btn-info white-font email-btn" do
             Click to Participate
+        %br
         %p
           Thanks,
           %br
