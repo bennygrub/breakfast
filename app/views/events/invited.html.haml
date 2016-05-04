@@ -1,0 +1,23 @@
+.row
+  .col-xs-12
+    %h1
+      = @event.name
+      Invited
+%table.table.table-striped
+  %thead
+    %tr
+      %th Name
+      %th Email
+      %th Status
+      %th
+      %th
+      %th
+
+  %tbody
+    - @event.invites.each do |invite|
+      %tr
+        %td= invite.name
+        %td= invite.email
+        %td
+          -if invite.sent
+            Sent

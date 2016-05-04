@@ -1,0 +1,38 @@
+!!!
+%html
+  %head
+    %meta(http-equiv="Content-Type" content="text/html; charset=UTF-8")
+    = stylesheet_link_tag 'emails'
+  %body
+    .row
+      .col-xs-12
+        .text-center
+          .blue-header{style: "background:lightblue;padding:30px;color:white;"}
+            %h2 CEO MONTHLY BREAKFAST SERIES
+            %h3 
+              %i Hosted By Philippe Dauman
+
+      .col-xs-12.text-center
+        %p
+          Hello
+          ="#{@name},"
+        %h4
+          You are cordially invited to breakfast with President and CEO Philippe Dauman
+        %p 
+          A monthly breakfast series initiated by Philippe for employees across Viacom
+        %h4
+          = @event.event_date.strftime("%B %d, %Y")
+        %p
+          = @event.event_date.strftime("%I:%M %p")
+          Sharp
+          %br
+          1515 Broadway- 52nd Fl. Multi Media Room
+          New York, NY, 10036
+
+        %p
+          =link_to "#{root_url}events/#{@event.id}/participants/new?invite_email=#{@email}&invite_name=#{@name}", class: "btn btn-info" do
+            Click to Participate
+        %p
+          Thanks,
+          %br
+          Office of Global Inclusion

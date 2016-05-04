@@ -4,4 +4,5 @@ class Event < ActiveRecord::Base
   has_many :participants
   extend TimeSplitter::Accessors
   split_accessor :event_date
+  has_many :invites
 end

@@ -64,6 +64,11 @@ gem 'wkhtmltopdf-binary'
 #copy/paste
 gem 'zeroclipboard-rails'
 
+#email
+gem "letter_opener", :group => :development
+gem 'nokogiri'
+gem 'premailer-rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

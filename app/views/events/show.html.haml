@@ -1,5 +1,5 @@
 .row
-  .col-xs-12.col-sm-8
+  .col-xs-12.col-sm-6
     %h1
       = @event.name
   .col-xs-12.col-sm-2
@@ -9,9 +9,14 @@
         Generate Preview
   .col-xs-12.col-sm-2
     %h1
-    =link_to generate_link_event_participants_path(@event) do
+    =link_to invite_list_event_path(@event) do
       .btn.btn-success
-        Generate Participant URL
+        Generate Invites
+  .col-xs-12.col-sm-2
+    %h1
+    =link_to invited_event_path(@event) do
+      .btn.btn-default
+        See Already Invited
 %h3
   = @event.event_date.strftime("%B %d, %Y")
   at

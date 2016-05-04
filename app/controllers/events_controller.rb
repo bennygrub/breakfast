@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy, :preview]
+  before_action :set_event, only: [:show, :edit, :update, :destroy, :preview, :invite_list, :invited, :send_invites]
   before_action :admin_only
   
   respond_to :html
@@ -57,6 +57,33 @@ class EventsController < ApplicationController
         :save_to_file => Rails.root.join('public', "#{@event.name}#{@event.id}.pdf")
       end
     end
+  end
+
+  def invite_list
+    @unsent = @event.invites.where(sent: false)
+    @sent = @event.invites.where(sent: true)
+    @invites = []
+    
+    if @sent.count > 0
+      5.times do
+        @invites << Invite.new
+      end
+    else
+      30.times do
+        @invites << Invite.new
+      end
+    end
+  end
+
+  def send_invites
+    params[:invites].each do |invite|
+      unless invite[:name].blank? || invite[:email].blank?
+        Invite.create(event_id: @event.id, name: invite[:name], email: invite[:email], sent: true)
+        InviteMailer.send_invite(invite[:name], invite[:email], @event.id).deliver
+      end
+    end
+    flash[:notice] = "Email have been sent"
+    redirect_to invited_event_path(@event)
   end
 
   private

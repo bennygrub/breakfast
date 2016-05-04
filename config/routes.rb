@@ -8,6 +8,9 @@ Breakfast::Application.routes.draw do
     end
     member do
       get :preview
+      get :invite_list
+      get :invited
+      post :send_invites
     end
   end
 

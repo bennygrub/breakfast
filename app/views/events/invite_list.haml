@@ -1,0 +1,19 @@
+.row
+  .col-xs-12
+    %h1
+      = @event.name
+      Invite List
+.row
+  .col-xs-12.col-sm-8
+    = form_tag send_invites_event_path(@event), method: :post do
+      .row{style:"background: #F7F7F7;border-radius: 5px;padding: 20px 5px;"}
+        .invite-section
+          -@invites.each do |invite|
+            = fields_for 'invites[]', invite do |p|
+              =render "invite_row", p: p
+
+      %br
+      .row
+        .col-xs-12
+          .pull-right
+            =submit_tag "Send Invites", class:"btn btn-info"
