@@ -24,8 +24,11 @@
           %i= @event.event_date.strftime("%I:%M %p")
           %i Sharp
           %br
-          1515 Broadway- 52nd Fl. Multi Media Room
-          New York, NY, 10036
+          -if @event.venue.blank?
+            1515 Broadway- 52nd Fl. Multi Media Room
+            New York, NY, 10036
+          -else
+            =@event.venue
         %br
         %p
           =link_to "#{root_url}events/#{@event.id}/participants/new?invite_email=#{@email}&invite_name=#{@name}", class: "btn btn-info white-font email-btn" do

@@ -25,6 +25,12 @@
 %p
   = @event.description
 
+%p
+  %h4 Venue Location:
+  -if @event.venue.blank?
+    1515 Broadway-52nd Fl. Multi Media Room New York, NY, 10036
+  -else
+    = @event.venue
 %br
 
 %h4 

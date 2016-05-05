@@ -20,6 +20,11 @@
           = f.text_area :description, class: "form-control"
       .form-group
         .col-sm-2.control-label
+          = f.label :venue
+        .col-sm-10
+          = f.text_area :venue, class: "form-control", placeholder: "Leaving blank will default to: 1515 Broadway-52nd Fl. Multi Media Room New York, NY, 10036"
+      .form-group
+        .col-sm-2.control-label
           = f.label "Event Date"
         .col-sm-10
           = f.text_field :event_date_date, class: "datepicker form-control"

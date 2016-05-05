@@ -1,5 +1,5 @@
 class InviteMailer < ActionMailer::Base
-  default from: "ceobreakfast@viacom.com"
+  default from: "BreakfastWithPhilippe@viacom.com"
 
   def send_invite(name, email, event)
     @name = name
