@@ -4,7 +4,10 @@
       %h2= "#{pluralize(@participant.errors.count, "error")} prohibited this participant from being saved:"
       %ul
         - @participant.errors.full_messages.each do |msg|
-          %li= msg
+          -if msg != "Avatar An image is required. Please upload a portait."
+            %li= msg
+          -else
+            %li An image is required. Please upload a portait.
 
   .col-xs-12.col-sm-8
     .form-group
