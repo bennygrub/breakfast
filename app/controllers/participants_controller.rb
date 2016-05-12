@@ -1,6 +1,6 @@
 class ParticipantsController < ApplicationController
   before_action :set_participant, only: [:show, :edit, :update, :destroy, :preview]
-  before_action :admin_only, except: [:new, :edit, :update, :show]
+  before_action :admin_only, except: [:new, :edit, :update, :show, :create]
 
   respond_to :html
 
