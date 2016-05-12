@@ -22,7 +22,7 @@
         .col-sm-2.control-label
           = f.label :venue
         .col-sm-10
-          = f.text_area :venue, class: "form-control", placeholder: "Leaving blank will default to: 1515 Broadway-52nd Fl. Multi Media Room New York, NY, 10036"
+          = f.text_area :venue, class: "form-control", placeholder: "Leaving blank will default to: 52nd Fl. Multi Media Room, 1515 Broadway, New York, NY, 10036"
       .form-group
         .col-sm-2.control-label
           = f.label "Event Date"
@@ -34,7 +34,7 @@
         .col-sm-2
           = f.select :event_date_hour, (1..12).map{|a| "%.2d" % a},{}, class: "form-control"
         .col-sm-2
-          = f.select :event_date_min, ["%.2d" % 0, 15, 30, 45], {}, class: "form-control"
+          = f.select :event_date_min, ["%.2d" % 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55], {}, class: "form-control"
         .col-sm-2
           = f.select :event_date_time, ["am", "pm"],{}, class: "form-control"
 
