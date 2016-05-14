@@ -11,6 +11,7 @@ Breakfast::Application.routes.draw do
       get :invite_list
       get :invited
       post :send_invites
+      get :generate_csv
     end
   end
 

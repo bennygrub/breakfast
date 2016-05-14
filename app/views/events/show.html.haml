@@ -66,3 +66,7 @@
 = link_to 'Back', events_path
 \|
 = link_to 'Create New Participant', new_event_participant_path(@event.id)
+\|
+= link_to generate_csv_event_path(@event, format: :csv) do
+  .btn.btn-warning
+    Download CSV list

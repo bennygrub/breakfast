@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy, :preview, :invite_list, :invited, :send_invites]
+  before_action :set_event, only: [:show, :edit, :update, :destroy, :preview, :invite_list, :invited, :send_invites, :generate_csv]
   before_action :admin_only
   
   respond_to :html
@@ -91,6 +91,24 @@ class EventsController < ApplicationController
     end
     flash[:notice] = "Email have been sent"
     redirect_to invited_event_path(@event)
+  end
+
+  def generate_csv
+    require 'csv'
+    respond_to do |format|
+      format.csv do
+        @participants = @event.participants
+        headers = ["Event Name", "Name", "Email", "Title", "Division", "Biography"]
+        
+        @downloadable = CSV.generate(headers: true) do |csv|
+          csv << headers
+          @participants.each do |participant|
+            csv << [@event.name, participant.name, participant.email, participant.title, participant.division, participant.biography]
+          end
+        end
+        send_data @downloadable, filename: "participants-#{Date.today}.csv"
+      end
+    end
   end
 
   private
