@@ -55,6 +55,14 @@
   .participant-row {
     margin-top:40px;
   }
+
+  .dotted-border{
+    border: 2px dotted #929497;
+    padding: 5px;
+    img {
+      border-radius:10px;
+    }
+  }
   
 }
 
