@@ -4,7 +4,7 @@
       &nbsp;
     .col-xs-9{style:"border-top: 2px solid grey;"}
       .text-right
-        %h1{style:"font-size:26px;"} CEO Monthly Breakfast Series
+        %h1 CEO Monthly Breakfast Series
         %h2 Hosted By Philippe Dauman
   .row{style:"margin-top:250px;"}
     .col-xs-3
@@ -13,7 +13,8 @@
       .text-right
         %h1{style:"font-size:24px;color: #67686b;"}
           = @event.event_date.strftime("%A, %B %d, %Y")
-        %h2{style:"font-size:25px;color: #67686b;"} Thursday Think Leaders and Active Members
+        %h2{style:"font-size:25px;color: #67686b;"}
+          =@event.focus_area
   .row{style:"margin-top:250px;"}
     .col-xs-10
       &nbsp;

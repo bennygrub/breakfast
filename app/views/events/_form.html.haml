@@ -37,6 +37,11 @@
           = f.select :event_date_min, ["%.2d" % 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55], {}, class: "form-control"
         .col-sm-2
           = f.select :event_date_time, ["am", "pm"],{}, class: "form-control"
+      .form-group
+        .col-sm-2.control-label
+          = f.label :focus_area
+        .col-sm-10
+          = f.text_field :focus_area, class: "form-control", placeholder: "To appear on cover page of PDF. Ex: 'Thursday Think Leaders and Active Members' "
 
       .form-group
         .col-sm-12

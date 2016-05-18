@@ -117,7 +117,7 @@ class EventsController < ApplicationController
     end
 
     def event_params
-      params.require(:event).permit(:name, :description, :event_date, :venue)
+      params.require(:event).permit(:name, :description, :event_date, :venue, :focus_area)
     end
 
     def admin_only
