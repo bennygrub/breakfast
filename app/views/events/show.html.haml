@@ -51,7 +51,7 @@
   -@participants.each do |participant|
     %tbody
       %tr
-        %td= image_tag(participant.avatar.url, class:"img-responsive", style:"max-width:30px;")
+        %td= image_tag(participant.avatar.url(:cropped), class:"img-responsive", style:"max-width:30px;")
         %td= participant.name
         %td= participant.title
         %td= participant.division

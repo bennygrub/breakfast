@@ -29,7 +29,7 @@
       .row.participant-row
         .col-xs-12.col-sm-3
           .dotted-border
-            =image_tag(participant.avatar.url)
+            =image_tag(participant.avatar.url(:cropped))
         .col-xs-12.col-sm-9
           %h1
             =participant.name
