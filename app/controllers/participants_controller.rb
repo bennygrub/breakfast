@@ -21,7 +21,12 @@ class ParticipantsController < ApplicationController
   end
 
   def edit
-    @crop_me = true
+
+    unless params[:crop].blank?
+      @crop_me = true
+    else
+      @crop_me = false
+    end
     @event = Event.find(params[:event_id])
   end
 
@@ -29,8 +34,11 @@ class ParticipantsController < ApplicationController
     @participant = Participant.new(participant_params)    
     @event = Event.find(@participant.event_id)
     #redirect_to event_participant_path(@event, @participant)
-    @participant.save
-    redirect_to crop_event_participant_path(@event, @participant)
+    if @participant.save
+      redirect_to crop_event_participant_path(@event, @participant)
+    else
+      root_path
+    end
   end
 
   def update

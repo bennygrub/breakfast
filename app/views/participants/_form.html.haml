@@ -9,15 +9,25 @@
           -else
             %li An image is required. Please upload a portait.
 
-  .col-xs-12.col-sm-8
-    -if @crop_me
+  -if @crop_me
+    -if @participant.avatar.url
+      = f.cropbox :avatar, width: 800
+    %br
+  -elsif @crop_me == false
+    .col-xs-12.col-sm-5
       .form-group
-        = f.cropbox :avatar, width: 500
-    .form-group
-      .col-sm-2.control-label
-        = f.label "Add image"
-      .col-sm-10
-        =f.file_field :avatar, class: "form-control"
+        =image_tag(@participant.avatar.url, class:"img-responsive")
+        %p
+          =link_to edit_event_participant_path(@event, @participant, crop:true) do
+            .btn.btn-default
+              Crop My Image
+  .col-xs-12.col-sm-8
+    -unless @crop_me
+      .form-group
+        .col-sm-2.control-label
+          = f.label "Add/Change image"
+        .col-sm-10
+          =f.file_field :avatar, class: "form-control"
     .form-group
       =f.hidden_field :event_id, value: @event.id
       .col-sm-2.control-label

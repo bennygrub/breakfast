@@ -55,7 +55,7 @@ gem 'pry'
 
 #images
 gem "paperclip"
-gem 'aws-sdk', '< 2.0'
+gem 'aws-sdk'
 gem "papercrop"
 
 

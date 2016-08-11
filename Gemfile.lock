@@ -225,7 +225,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  aws-sdk (< 2.0)
+  aws-sdk
   bootstrap-datepicker-rails!
   bootstrap-sass
   coffee-rails (~> 4.1.0)
