@@ -67,7 +67,7 @@ class ParticipantsController < ApplicationController
     end
 
     def participant_params
-      params.require(:participant).permit(:event_id, :name, :email, :title, :division, :biography, :avatar, cropping_params(:avatar))
+      params.require(:participant).permit(:event_id, :name, :email, :title, :division, :biography, :avatar, :avatar_crop_x, :avatar_crop_y, :avatar_crop_w, :avatar_crop_h, :avatar_original_w, :avatar_original_h, :avatar_box_w, :avatar_aspect)
     end
 
     def admin_only

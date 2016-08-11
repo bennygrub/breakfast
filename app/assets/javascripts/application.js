@@ -11,10 +11,10 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.jcrop
+//= require papercrop
 //= require jquery_ujs
 //= require bootstrap-datepicker
 //= require bootstrap
 //= require zeroclipboard
-//= require jquery.jcrop
-//= require papercrop
 //= require_tree .
