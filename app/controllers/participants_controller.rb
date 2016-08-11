@@ -1,6 +1,6 @@
 class ParticipantsController < ApplicationController
-  before_action :set_participant, only: [:show, :edit, :update, :destroy, :preview]
-  before_action :admin_only, except: [:new, :edit, :update, :show, :create]
+  before_action :set_participant, only: [:show, :edit, :update, :destroy, :preview, :crop]
+  before_action :admin_only, except: [:new, :edit, :update, :show, :create, :crop]
 
   respond_to :html
 
@@ -21,15 +21,16 @@ class ParticipantsController < ApplicationController
   end
 
   def edit
+    @crop_me = true
     @event = Event.find(params[:event_id])
   end
 
   def create
-    @participant = Participant.new(participant_params)
-    @participant.save
+    @participant = Participant.new(participant_params)    
     @event = Event.find(@participant.event_id)
     #redirect_to event_participant_path(@event, @participant)
-    respond_with(@event, @participant)
+    @participant.save
+    redirect_to crop_event_participant_path(@event, @participant)
   end
 
   def update
@@ -37,6 +38,8 @@ class ParticipantsController < ApplicationController
     #participant_params[:avatar].nil?
     #raise "#{participant_params}"
     @participant.update(participant_params)
+
+
     respond_with(@event, @participant)
   end
 
@@ -50,6 +53,10 @@ class ParticipantsController < ApplicationController
 
   end
 
+  def crop
+    @event = Event.find(@participant.event_id)
+  end
+
   def generate_link
     @event = Event.find(params[:event_id])
   end
@@ -60,7 +67,7 @@ class ParticipantsController < ApplicationController
     end
 
     def participant_params
-      params.require(:participant).permit(:event_id, :name, :email, :title, :division, :biography, :avatar)
+      params.require(:participant).permit(:event_id, :name, :email, :title, :division, :biography, :avatar, cropping_params(:avatar))
     end
 
     def admin_only

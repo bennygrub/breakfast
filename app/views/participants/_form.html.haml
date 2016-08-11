@@ -10,6 +10,9 @@
             %li An image is required. Please upload a portait.
 
   .col-xs-12.col-sm-8
+    -if @crop_me
+      .form-group
+        = f.cropbox :avatar
     .form-group
       .col-sm-2.control-label
         = f.label "Add image"

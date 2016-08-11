@@ -5,6 +5,9 @@ Breakfast::Application.routes.draw do
       collection do
         get :generate_link
       end
+      member do
+        get :crop
+      end
     end
     member do
       get :preview

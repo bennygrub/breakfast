@@ -4,7 +4,7 @@
   %hr
   .row.participant-row
     .col-xs-12.col-sm-3
-      =image_tag(@participant.avatar.url)
+      =image_tag(@participant.avatar.url(:large))
     .col-xs-12.col-sm-9
       %h1
         =@participant.name
