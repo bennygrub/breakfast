@@ -37,7 +37,7 @@
       .row.participant-row
         .col-xs-4
           .dotted-borders
-            =wicked_pdf_image_tag(participant.avatar.url(:cropped), class: "img-responsive", style:"border: 2px dotted #929497;")
+            =wicked_pdf_image_tag(participant.avatar.url, class: "img-responsive", style:"border: 2px dotted #929497;")
         .col-xs-8
           %h1
             =participant.name
