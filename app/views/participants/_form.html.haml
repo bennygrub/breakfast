@@ -53,12 +53,12 @@
       .col-sm-2.control-label
         = f.label :biography
       .col-sm-10
-        = f.text_area :biography, class: "form-control", placeholder: "Up to 500 characters", style:"min-height:200px;", maxlength: 500, id: 'review_text'
+        = f.text_area :biography, class: "form-control", placeholder: "Up to 520 characters", style:"min-height:200px;", maxlength: 520, id: 'review_text'
       .col-xs-12
         .pull-right
           Characters Left:
-          %span#counter{"data-maximum-length" => "500"}= 500
-          out of 500
+          %span#counter{"data-maximum-length" => "520"}= 520
+          out of 520
         .clearfix
     .form-group
       .pull-right
@@ -73,8 +73,8 @@
   $(document).ready(function() {
     var review_text = $("#review_text");
     var counter     = $("#counter");
-    var max_length  = 500;
-    
+    var max_length  = 520;
+
     review_text.keyup(function() {
         amountLeft = max_length - $(this).val().length
         counter.text(amountLeft);
